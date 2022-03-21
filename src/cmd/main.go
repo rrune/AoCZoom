@@ -18,7 +18,7 @@ func main() {
 		log.Printf("error opening file: %v", err)
 	}
 	defer f.Close()
-	//log.SetOutput(f)
+	log.SetOutput(f)
 	log.SetFlags(2 | 3)
 	log.Println("")
 
