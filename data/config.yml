@@ -1,5 +1,8 @@
-port: "1234"
+port: "25555"
 imagePath: "../data/img.png"
+ssl: false
+certfile: "../data/cerfile.crt"
+keyfile: "../data/keyfile.key"
 keys:
   - "abc"
   - "123"

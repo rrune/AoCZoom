@@ -1,0 +1,9 @@
+version: "3"
+services:
+  web:
+    build: ./
+    container_name: AoC
+    ports:
+      - "25555:25555"
+    volumes:
+      - ./data:/app/data

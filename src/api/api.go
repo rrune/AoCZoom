@@ -17,11 +17,11 @@ func New(path string) Api {
 	a := Api{
 		ImgPath: path,
 	}
-	a.cacheImage()
+	a.loadImage()
 	return a
 }
 
-func (a *Api) cacheImage() {
+func (a *Api) loadImage() {
 	f, err := ioutil.ReadFile(a.ImgPath)
 	if util.Check(err, true) {
 		log.Println(err)
@@ -44,9 +44,8 @@ func (a *Api) UpdateImage(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
+	a.Image = fileBytes
 	w.WriteHeader(http.StatusOK)
-
-	a.cacheImage()
 }
 
 func (a *Api) GetImage(w http.ResponseWriter, r *http.Request) {

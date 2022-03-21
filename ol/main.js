@@ -18,7 +18,7 @@ const map = new Map({
   layers: [
     new ImageLayer({
       source: new Static({
-        url: 'http://localhost:1234/getImage',
+        url: 'https://veronica.212th.de:25555/getImage',
         projection: projection,
         imageExtent: extent,
       }),

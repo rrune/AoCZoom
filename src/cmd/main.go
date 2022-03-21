@@ -31,5 +31,9 @@ func main() {
 	a := api.New(config.ImagePath)
 
 	log.Printf("Running on Port %s", config.Port)
-	log.Fatal(http.ListenAndServe(":"+config.Port, router.NewRouter(a, config)))
+	if config.Ssl {
+		log.Fatal(http.ListenAndServeTLS(":"+config.Port, config.Certfile, config.Keyfile, router.NewRouter(a, config)))
+	} else {
+		log.Fatal(http.ListenAndServe(":"+config.Port, router.NewRouter(a, config)))
+	}
 }

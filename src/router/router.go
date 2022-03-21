@@ -14,7 +14,7 @@ func NewRouter(api api.Api, cfg models.Config) http.Handler {
 	config = cfg
 	r := chi.NewRouter()
 
-	fs := http.FileServer(http.Dir("../data/public"))
+	fs := http.FileServer(http.Dir("../public"))
 	r.Handle("/*", http.StripPrefix("/", fs))
 
 	r.Get("/getImage", api.GetImage)
