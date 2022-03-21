@@ -28,7 +28,7 @@ const map = new Map({
   view: new View({
     projection: projection,
     center: getCenter(extent),
-    zoom: 2,
+    zoom: 1.8,
     maxZoom: 8,
   }),
 });

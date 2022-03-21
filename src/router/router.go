@@ -12,9 +12,7 @@ var config models.Config
 
 func NewRouter(api api.Api, cfg models.Config) http.Handler {
 	config = cfg
-
 	r := chi.NewRouter()
-	//r.Use(middleware.RealIP)
 
 	fs := http.FileServer(http.Dir("../data/public"))
 	r.Handle("/*", http.StripPrefix("/", fs))

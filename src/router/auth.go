@@ -16,7 +16,7 @@ func auth(next http.Handler) http.Handler {
 				}
 			}
 		}
-		w.Write([]byte("Missing authorization"))
+		w.WriteHeader(http.StatusUnauthorized)
 		return
 	})
 }
